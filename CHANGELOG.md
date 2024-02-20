@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/complex_operations] folder
 - [math/reciprocal_square_root] folder
 - [math/waves] folder
-
+- [memory/rom] folder
 
 ## [2024.02.20]
 

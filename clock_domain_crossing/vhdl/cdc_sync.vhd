@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Engineer: Daniele Giardino
 -- 
--- Create Date: 2024.02.21
+-- Create Date: 2024.02.20
 -- Description: 
 --   Synchronizer is used to synchronize a pulse generated 
 --   in a faster clock domain (Clock1 in the design) to 
