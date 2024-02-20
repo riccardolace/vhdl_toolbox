@@ -1,4 +1,4 @@
-# Welcome to the VHDL Toolbox: Build Better FPGA Designs!
+# Welcome to the VHDL Toolbox!
 
 This repository provides a rich collection of reusable VHDL components designed to streamline your FPGA design process. With a focus on quality and efficiency, the library offers a wide range of functionalities categorized for ease of use:
 
@@ -11,7 +11,7 @@ This repository provides a rich collection of reusable VHDL components designed 
 
 ## Getting Started
 
-1. **Clone the repository**: Use git clone https://github.com/your-username/versatile-vhdl-library.git to download the library.
+1. **Clone the repository**: Use git clone https://github.com/danielegiardino/vhdl-toolbox.git to download the library.
 2. **Explore the components**: Browse through the organized folders to discover the available functionalities.
 3. **Integrate into your project**: Seamlessly incorporate the desired components into your VHDL designs.
 
