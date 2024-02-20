@@ -14,11 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/waves] folder
 
 
-### Removed
-
-- Trademark sign previously shown after the project description in version 
-0.3.0
-
 ## [2024.02.20]
 
 ### Added
