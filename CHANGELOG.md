@@ -12,7 +12,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/complex_operations] folder
 - [math/reciprocal_square_root] folder
 - [math/waves] folder
-- [memory/rom] folder
+
+## [2024.03.05]
+
+### Added
+
+**memory folder**
+
+- README.md: rom section has been added.
+- rom
+  - python
+    - genCounter.vhd
+  - testbench
+    - data_signed.txt
+    - data_unsigned.txt
+    - rom_slv_tb.vhd
+  - vhdl
+    - rom_slv.vhd
+
+**TCL script for testbench**
+- sim_tb.tcl was created to automatically generate a Vivado project and test the code.
+
+### Changed
+
+- VHDL file comments have been changed.
+- pkg_vhdl_toolbox.vhd has been moved from `packages` to `packages/vhdl`.
 
 ## [2024.02.20]
 

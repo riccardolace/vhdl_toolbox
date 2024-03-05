@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
--- Engineer: Daniele Giardino
+-- Author: Daniele Giardino
 -- 
--- Create Date: 2024.02.20
+-- Date: 2024.02.20
 -- Description: 
 --   The block allows you to reduce the size of a `std_logic_vector` saturating it.
 --   

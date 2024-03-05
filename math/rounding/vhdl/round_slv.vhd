@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
--- Engineer: Daniele Giardino
+-- Author: Daniele Giardino
 -- 
--- Create Date: 2024.02.20
+-- Date: 2024.02.20
 -- Description: 
 --   The block allows you to implement various rounding logics.
 --   See the table for information.

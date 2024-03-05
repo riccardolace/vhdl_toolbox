@@ -6,6 +6,9 @@ Clock Domain Crossing
     - [Axi Fifo 2clk](#axi-fifo-2clk)
   - [Ram](#ram)
     - [Dual clock synchronous RAM](#dual-clock-synchronous-ram)
+  - [Rom](#rom)
+    - [Rom with external address](#rom-with-external-address)
+    - [Rom with internal address](#rom-with-internal-address)
 
 ## Fifo
 
@@ -52,7 +55,7 @@ A simplified diagram is shown as follows:
 
 ### Dual clock synchronous RAM
 
-**Filename** - `axi_fifo_2clk.vhd`
+**Filename** - `ram_2clk.vhd`
 
 It is a dual clock synchronous RAM.
 
@@ -73,4 +76,50 @@ The design is
   ─────────┘  ┌───>│     │<───┐  └─────────
   addra       │    └─────┘    │       addra
   ────────────┘               └────────────
+```
+
+---
+
+## Rom
+
+### Rom with external address
+
+**Filename** - `rom_slv.vhd`
+
+Input port 'addr_rd' is used to read the rom values.
+
+The design is
+```
+  clk                      
+  ────────────┐            
+  enb         │    ┌─────┐ 
+  ─────────┐  └───>│     │
+           └──────>│     │      valid_out
+  data_in          │  R  ├──────────────>
+  ────────────────>│  O  │
+                   │  M  │       data_out
+  addr_rd  ┌──────>│     ├──────────────>
+  ─────────┘       │     │
+                   └─────┘
+```
+
+### Rom with internal address
+
+**Filename** - `rom_slv.vhd`
+
+Input port 'addr_rd' is not used. The rom values are read sequentially using an address generated internally. The address signal is incremented when enable is high.
+
+The design is
+```
+  clk                      
+  ────────────┐            
+  enb         │    ┌─────┐ 
+  ─────────┐  └───>│     │
+           └──────>│     │      valid_out
+  data_in          │  R  ├──────────────>
+  ────────────────>│  O  │
+                   │  M  │       data_out
+                   │     ├──────────────>
+                   │     │
+                   └─────┘
 ```

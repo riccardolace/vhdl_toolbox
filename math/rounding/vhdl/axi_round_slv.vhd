@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
--- Engineer: Daniele Giardino
+-- Author: Daniele Giardino
 -- 
--- Create Date: 2024.02.20
+-- Date: 2024.02.20
 -- Description: 
 --   AXI version of the block 'round_slv.vhd'.
 -- 

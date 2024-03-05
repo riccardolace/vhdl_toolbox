@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
--- Engineer: Daniele Giardino
+-- Author: Daniele Giardino
 -- 
--- Create Date: 2024.02.20
+-- Date: 2024.02.20
 -- Description: 
 --   The block allows you to round and reduce the size of a 'std_logic_vector'.
 --   The blocks 'round_slv_inst.vhd' and 'clip_slv_inst.vhd' are implemented, and 

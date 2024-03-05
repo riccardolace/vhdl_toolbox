@@ -1,3 +1,5 @@
+
+# Future development
 digital_signal_processing/
 
 math/complex_operations/
@@ -7,3 +9,7 @@ math/reciprocal_square_root/
 math/waves/
 
 sim_*/
+
+# Simulator folder
+prj_tb/
+.Xil

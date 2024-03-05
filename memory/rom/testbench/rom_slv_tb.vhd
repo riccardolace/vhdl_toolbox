@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Author: Daniele Giardino
 -- 
--- Date: 2024.02.20
+-- Date: YYYY.MM.DD
 -- Description: 
 --   Test Bench.
 -- 
@@ -18,10 +18,10 @@ library ieee;
   use std.textio.all;
   use std.env.finish;
 
-entity counter_with_hit_tb is
+entity rom_slv_tb is
 end entity;
 
-architecture sim of counter_with_hit_tb is
+architecture sim of rom_slv_tb is
 
   constant clk_hz     : integer := 1e9;
   constant clk_period : time    := 1 sec / clk_hz;
@@ -30,31 +30,43 @@ architecture sim of counter_with_hit_tb is
   signal rst : std_logic := '1';
 
   constant bitLength : INTEGER := 16;
-  constant valToRst  : INTEGER := 2 ** 16 - 1;
-  constant valToHit  : INTEGER := 0;
   signal enb : STD_LOGIC := '0';
-  signal inc : STD_LOGIC_VECTOR(bitLength - 1 downto 0);
-  signal hit : STD_LOGIC;
-  signal cnt : STD_LOGIC_VECTOR(bitLength - 1 downto 0);
-
+  signal data_out : STD_LOGIC_VECTOR(bitLength - 1 downto 0);
+  signal addr_rd : std_logic_vector(5 downto 0);
+  signal valid_out : std_logic;
+  
 begin
 
   clk <= not clk after clk_period / 2;
 
-  DUT: entity work.counter_with_hit(bhv_unsigned)
+  DUT: entity work.rom_slv(bhv_intAddress)
     generic map (
-      bitLength => bitLength,
-      valToRst  => valToRst,
-      valToHit  => valToHit
+      romSize   => 64,
+      romStyle  => "distributed",
+      romPath   => "../testbench/data_unsigned.txt",
+      bitLength => bitLength
     )
     port map (
       clk => clk,
       rst => rst,
       enb => enb,
-      inc => inc,
-      hit => hit,
-      cnt => cnt
+      addr_rd  => addr_rd,
+      valid_out => valid_out,
+      data_out => data_out
     );
+
+  addrGenerator_PROC : process(clk)
+  begin
+    if rising_edge(clk) then
+      if rst = '1' then
+        addr_rd <= (others => '0');
+        
+      elsif enb='1' then
+        addr_rd <= std_logic_vector(unsigned(addr_rd)+1);
+        
+      end if;
+    end if;
+  end process;
 
   SEQUENCER_PROC: process
   begin
@@ -62,7 +74,6 @@ begin
 
     rst <= '0';
     enb <= '1';
-    inc <= std_logic_vector(to_unsigned(1, inc'length));
 
     wait for clk_period * 10;
 
