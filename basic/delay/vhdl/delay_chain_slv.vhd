@@ -24,8 +24,8 @@ entity delay_chain_slv is
         y   : out STD_LOGIC_VECTOR(bitLength - 1 downto 0));
 end entity;
 
-architecture bhv of delay_chain_slv is
-  type arr_1d is array (NATURAL range <>) of STD_LOGIC_VECTOR(bitLength - 1 downto 0);
+architecture rtl of delay_chain_slv is
+  type arr_1d is array (natural range <>) of STD_LOGIC_VECTOR(bitLength - 1 downto 0);
   signal reg_y : arr_1d(0 to delayLength - 1);
 
 begin

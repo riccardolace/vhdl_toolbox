@@ -40,8 +40,8 @@ end entity;
 
 -- Unsigned
 
-architecture bhv_unsigned of counter_with_hit is
-  signal reg_cnt : UNSIGNED(bitLength - 1 downto 0);
+architecture rtl_unsigned of counter_with_hit is
+  signal reg_cnt : UNSIGNED(bitLength - 1 downto 0) := (others=>'0');
 begin
 
   process(clk)

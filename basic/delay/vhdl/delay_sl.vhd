@@ -21,7 +21,7 @@ entity delay_sl is
         y   : out STD_LOGIC);
 end entity;
 
-architecture bhv of delay_sl is
+architecture rtl of delay_sl is
   signal int_x : STD_LOGIC;
   signal reg_y : STD_LOGIC;
 begin

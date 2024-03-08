@@ -69,6 +69,13 @@ begin
     );
   end generate;
 
+  CLIP_BITS_ZERO_GEN: if CLIP_BITS = 0 generate
+  begin
+    o_tvalid   <= int_tvalid;
+    o_tdata    <= int_tdata;
+    int_tready <= o_tready;
+  end generate;
+
   CLIP_BITS_NO_ZERO_GEN: if CLIP_BITS > 0 generate
   begin
     axi_clip_slv_inst: entity work.axi_clip_slv(rtl)

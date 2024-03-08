@@ -39,7 +39,7 @@ begin
 
   clk <= not clk after clk_period / 2;
 
-  DUT: entity work.delay_ram_slv(bhv) generic map (
+  DUT: entity work.delay_ram_slv(rtl) generic map (
     bitLength   => bitLength,
     delayLength => delayLength,
     Ram_Type    => Ram_Type

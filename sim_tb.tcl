@@ -25,25 +25,31 @@ create_project $prjName $prjName
 set_property target_language VHDL [current_project]
 
 # File list of 'basic'
-set fileList_vhdl {*}[glob basic/counter/vhdl/*.vhd]
-set fileList_tb   {*}[glob basic/counter/testbench/*.vhd]
-
+set     fileList_vhdl {*}[glob basic/counter/vhdl/*.vhd]
+set 		fileList_tb   {*}[glob basic/counter/testbench/*.vhd]
 lappend fileList_vhdl {*}[glob basic/delay/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob basic/delay/testbench/*.vhd]
 
 # File list of 'clock_domain_crossing'
 lappend fileList_vhdl {*}[glob clock_domain_crossing/vhdl/*.vhd]
 
+# File list of 'digital_signal_processing'
+lappend fileList_vhdl {*}[glob digital_signal_processing/filters/vhdl/*.vhd]
+lappend fileList_tb   {*}[glob digital_signal_processing/filters/testbench/*.vhd]
+lappend fileList_vhdl {*}[glob digital_signal_processing/sample_rate_converter/vhdl/*.vhd]
+lappend fileList_tb   {*}[glob digital_signal_processing/sample_rate_converter/testbench/*.vhd]
+
 # File list of 'math'
+lappend fileList_vhdl {*}[glob math/arithmetic_operations/vhdl/*.vhd]
+lappend fileList_tb   {*}[glob math/arithmetic_operations/testbench/*.vhd]
 lappend fileList_vhdl {*}[glob math/rounding/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob math/rounding/testbench/*.vhd]
 
-# File list of 'math'
+# File list of 'memory'
 lappend fileList_vhdl {*}[glob memory/fifo/vhdl/*.vhd]
 lappend fileList_vhdl {*}[glob memory/ram/vhdl/*.vhd]
 lappend fileList_vhdl {*}[glob memory/rom/vhdl/*.vhd]
-#lappend fileList_tb   {*}[glob memory/fifo/testbench/*.vhd]
-#lappend fileList_tb   {*}[glob memory/ram/testbench/*.vhd]
+lappend fileList_tb   {*}[glob memory/fifo/testbench/*.vhd]
 lappend fileList_tb   {*}[glob memory/rom/testbench/*.vhd]
 
 # File list of 'package'
@@ -63,6 +69,6 @@ move_files -fileset sim_1 [get_files $fileList_tb]
 set_property top counter_with_hit [current_fileset]
 
 # Set top (testbench)
-set_property top counter_with_hit_tb [get_filesets sim_1]
+set_property top fir_interpolator_tb [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 

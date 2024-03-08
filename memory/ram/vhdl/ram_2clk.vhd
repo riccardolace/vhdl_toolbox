@@ -51,9 +51,9 @@ entity ram_2clk is
   );
 end entity;
 
-architecture bhv of ram_2clk is
+architecture rtl of ram_2clk is
 
-  type T_arr is array (NATURAL range <>) of STD_LOGIC_VECTOR(data_in'RANGE);
+  type T_arr is array (natural range <>) of STD_LOGIC_VECTOR(data_in'RANGE);
   signal ram : T_ARR(0 to 2 ** RAM_ADDR_WIDTH - 1);
   attribute ram_style        : STRING;
   attribute ram_style of ram : signal is "block";

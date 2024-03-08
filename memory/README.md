@@ -1,23 +1,15 @@
-Clock Domain Crossing
+Memory
 ===
 
-- [Clock Domain Crossing](#clock-domain-crossing)
+- [Memory](#memory)
   - [Fifo](#fifo)
-    - [Axi Fifo 2clk](#axi-fifo-2clk)
   - [Ram](#ram)
-    - [Dual clock synchronous RAM](#dual-clock-synchronous-ram)
   - [Rom](#rom)
-    - [Rom with external address](#rom-with-external-address)
-    - [Rom with internal address](#rom-with-internal-address)
 
 ## Fifo
 
-### Axi Fifo 2clk
-
-**Filename** - `axi_fifo_2clk.vhd`
-
-The purpose of this dual clock FIFO is to enable two circuits that operate at different clock frequencies to communicate with each other.
-
+**Filename** - `axi_fifo_2clk.vhd`  
+The purpose of this dual clock FIFO is to enable two circuits that operate at different clock frequencies to communicate with each other.  
 A simplified diagram is shown as follows:
 
 ```
@@ -49,17 +41,14 @@ A simplified diagram is shown as follows:
                                         ┊
 ```
 
----
+<br>
 
 ## Ram
 
-### Dual clock synchronous RAM
-
-**Filename** - `ram_2clk.vhd`
-
+**Filename** - `ram_2clk.vhd`  
 It is a dual clock synchronous RAM.
+The design is:
 
-The design is
 ```
      WRITE SIDE       ┊     READ SIDE        
   ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┊┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄
@@ -78,17 +67,14 @@ The design is
   ────────────┘               └────────────
 ```
 
----
+<br>
 
 ## Rom
 
-### Rom with external address
-
-**Filename** - `rom_slv.vhd`
-
+**Filename** - `rom_slv.vhd`  
 Input port 'addr_rd' is used to read the rom values.
+The design is:
 
-The design is
 ```
   clk                      
   ────────────┐            
@@ -103,13 +89,12 @@ The design is
                    └─────┘
 ```
 
-### Rom with internal address
+<br>
 
-**Filename** - `rom_slv.vhd`
-
+**Filename** - `rom_slv.vhd`  
 Input port 'addr_rd' is not used. The rom values are read sequentially using an address generated internally. The address signal is incremented when enable is high.
+The design is:
 
-The design is
 ```
   clk                      
   ────────────┐            

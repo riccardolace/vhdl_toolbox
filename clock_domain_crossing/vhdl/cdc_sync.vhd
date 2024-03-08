@@ -50,9 +50,9 @@ port(
 );
 end cdc_sync;
 
-architecture bhv of cdc_sync is
+architecture rtl of cdc_sync is
   
-  TYPE T_arr IS ARRAY (NATURAL RANGE <>) OF STD_LOGIC_VECTOR(data_in'RANGE);
+  TYPE T_arr IS ARRAY (natural range <>) OF STD_LOGIC_VECTOR(data_in'RANGE);
   SIGNAL regs : T_ARR(0 TO REGS_STAGE-1);
   ATTRIBUTE ram_style: STRING;
   ATTRIBUTE ram_style OF regs : SIGNAL IS "block";

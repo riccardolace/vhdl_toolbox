@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Author: Daniele Giardino
 -- 
--- Date: YYYY.MM.DD
+-- Date: 2024.03.05
 -- Description: 
 --   Test Bench.
 -- 
@@ -47,12 +47,12 @@ begin
       bitLength => bitLength
     )
     port map (
-      clk => clk,
-      rst => rst,
-      enb => enb,
-      addr_rd  => addr_rd,
+      clk       => clk,
+      rst       => rst,
+      enb       => enb,
+      addr_rd   => addr_rd,
       valid_out => valid_out,
-      data_out => data_out
+      data_out  => data_out
     );
 
   addrGenerator_PROC : process(clk)

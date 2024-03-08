@@ -21,7 +21,7 @@ entity delay_chain_sl is
         y   : out STD_LOGIC);
 end entity;
 
-architecture bhv of delay_chain_sl is
+architecture rtl of delay_chain_sl is
   signal reg_y : STD_LOGIC_VECTOR(0 to delayLength - 1);
 begin
   process (clk)

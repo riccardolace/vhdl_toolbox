@@ -7,11 +7,67 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Next release...]
 
-### To add ...
+### To add
 
-- [math/complex_operations] folder
 - [math/reciprocal_square_root] folder
 - [math/waves] folder
+
+## [2024.03.08]
+
+### Added
+
+**digital signal processing folder**
+- filters
+  - python
+    - genFIRCoeffs.py
+    - genSignal.py
+    - readSignal.py
+  - testbench
+    - coeffs_len64_Wl18.txt
+    - data_in.txt
+    - data_out.txt
+    - fir_filter_tb.vhd
+  - vhdl
+    - fir_filter.vhd
+- sample_rate_converter
+  - python
+    - genFIRCoeffsDecimator.py
+    - genFIRCoeffsInterpolator.py
+    - genSignal.py
+    - readSignal.py
+  - testbench
+    - coeffs_len128_Wl18_L8.txt
+    - coeffs_len128_Wl18_M8.txt
+    - data_in.txt
+    - data_out.txt
+    - fir_decimator_tb.vhd
+    - fir_interpolator_tb.vhd
+  - vhdl
+    - fir_decimator.vhd
+    - fir_interpolator.vhd
+
+**math folder**
+- arithmetic_operations
+  - testbench
+    - acc_N_sps_tb.vhd
+    - multAdd_tb.vhd
+  - vhdl
+    - acc_N_sps.vhd
+    - c_sum.vhd
+    - c_sub.vhd
+    - c_mult.vhd
+    - mult.vhd
+    - multAdd.vhd
+
+**memory folder**
+- fifo/testbench
+    - axi_fifo_2clk_tb.vhd
+
+### Changed
+
+- Architecture names have been changed from `bhv` to `rtl`.
+- Titles and subtitles of README files have been rearranged.
+
 
 ## [2024.03.05]
 

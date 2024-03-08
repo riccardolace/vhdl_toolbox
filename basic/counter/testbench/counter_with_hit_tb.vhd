@@ -41,7 +41,7 @@ begin
 
   clk <= not clk after clk_period / 2;
 
-  DUT: entity work.counter_with_hit(bhv_unsigned)
+  DUT: entity work.counter_with_hit(rtl_unsigned)
     generic map (
       bitLength => bitLength,
       valToRst  => valToRst,

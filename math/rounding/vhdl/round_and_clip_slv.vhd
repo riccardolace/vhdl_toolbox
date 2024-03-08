@@ -42,23 +42,33 @@ architecture rtl of round_and_clip_slv is
 
 begin
 
-  round_slv_inst: entity work.round_slv
-    generic map (
-      WIDTH_IN   => WIDTH_IN,
-      WIDTH_OUT  => WIDTH_OUT + CLIP_BITS,
-      ROUND_TYPE => 2
-    )
-    port map (
-      clk            => clk,
-      rst            => rst,
-      enb            => enb,
-      data_in        => data_in,
-      data_out       => open,
-      sync_valid_out => int_tvalid,
-      sync_data_out  => int_tdata
-    );
+  SAME_WIDTH_GEN: if WIDTH_IN = WIDTH_OUT + CLIP_BITS generate
+  begin
+    int_tvalid <= '1';
+    int_tdata  <= data_in;
+  end generate;
 
-                        clip_enb <= enb and int_tvalid;
+  DIFFERENT_WIDTH_GEN: if WIDTH_IN /= WIDTH_OUT + CLIP_BITS generate
+  begin
+
+    round_slv_inst: entity work.round_slv
+      generic map (
+        WIDTH_IN   => WIDTH_IN,
+        WIDTH_OUT  => WIDTH_OUT + CLIP_BITS,
+        ROUND_TYPE => 2
+      )
+      port map (
+        clk            => clk,
+        rst            => rst,
+        enb            => enb,
+        data_in        => data_in,
+        data_out       => open,
+        sync_valid_out => int_tvalid,
+        sync_data_out  => int_tdata
+      );
+  end generate;
+  
+  clip_enb <= int_tvalid;
   clip_slv_inst: entity work.clip_slv
     generic map (
       WIDTH_IN  => WIDTH_OUT + CLIP_BITS,

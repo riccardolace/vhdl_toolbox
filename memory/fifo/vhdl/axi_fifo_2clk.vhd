@@ -54,7 +54,7 @@ entity axi_fifo_2clk is
   );
 end entity;
 
-architecture bhv of axi_fifo_2clk is
+architecture rtl of axi_fifo_2clk is
 
   signal int_tdata  : std_logic_vector(FIFO_DATA_WIDTH - 1 downto 0);
   signal int_tready : std_logic;
@@ -95,7 +95,7 @@ architecture bhv of axi_fifo_2clk is
 
   -- Cross Domain Clock signals
   constant C_SYNC_STAGES : INTEGER := 2;
-  type T_SYNC_ADDR is array (NATURAL range <>) of UNSIGNED(wr_addr'RANGE);
+  type T_SYNC_ADDR is array (natural range <>) of UNSIGNED(wr_addr'RANGE);
   signal cdc_wr_addr : T_SYNC_ADDR(0 to C_SYNC_STAGES - 1);
   signal cdc_write   : STD_LOGIC_VECTOR(0 to C_SYNC_STAGES - 1);
   signal cdc_full    : STD_LOGIC_VECTOR(0 to C_SYNC_STAGES - 1);

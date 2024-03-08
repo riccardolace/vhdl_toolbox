@@ -22,7 +22,7 @@ entity delay_slv is
         y   : out STD_LOGIC_VECTOR(bitLength - 1 downto 0));
 end entity;
 
-architecture bhv of delay_slv is
+architecture rtl of delay_slv is
   signal int_x : STD_LOGIC_VECTOR(bitLength - 1 downto 0);
   signal reg_y : STD_LOGIC_VECTOR(bitLength - 1 downto 0);
 begin

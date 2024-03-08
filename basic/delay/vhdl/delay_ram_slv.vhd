@@ -29,10 +29,10 @@ entity delay_ram_slv is
         y   : out STD_LOGIC_VECTOR(bitLength - 1 downto 0));
 end entity;
 
-architecture bhv of delay_ram_slv is
+architecture rtl of delay_ram_slv is
 
   -- RAM
-  type arr_1d is array (NATURAL range <>) of STD_LOGIC_VECTOR(bitLength - 1 downto 0);
+  type arr_1d is array (natural range <>) of STD_LOGIC_VECTOR(bitLength - 1 downto 0);
   signal ram : arr_1d(0 to delayLength - 1) := (others =>(others => '0'));
   attribute ram_style        : string;
   attribute ram_style of ram : signal is Ram_Type;

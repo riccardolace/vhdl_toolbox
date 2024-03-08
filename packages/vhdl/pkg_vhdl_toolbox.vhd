@@ -44,7 +44,8 @@ end package;
 package body pkg_vhdl_toolbox is
 
   -- FUNCTIONS
-  -- Log2
+  -- Log2. Since the input is a positive integer,
+  -- the return value is 'floor(log2(x))'.
   function log2(i : natural) return natural is
     variable temp    : natural := i;
     variable ret_val : natural := 0;

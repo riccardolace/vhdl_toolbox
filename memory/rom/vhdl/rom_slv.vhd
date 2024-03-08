@@ -1,7 +1,7 @@
 ----------------------------------------------------------------------------------
 -- Author: Daniele Giardino
 -- 
--- Date: YYYY.MM.DD
+-- Date: 2024.03.05
 -- Description: 
 -- 
 -- Revision:
@@ -34,7 +34,7 @@ end entity;
 -- Input port 'addr_rd' is not used. The rom values are read sequentially 
 -- using an address generated internally. The address signal is incremented
 -- when enable is high.
-architecture bhv_intAddress of rom_slv is
+architecture rtl_intAddress of rom_slv is
 
   -- 1d array type
   type rom_arr_type is array (0 to romSize - 1) of std_logic_vector(bitLength - 1 downto 0);
@@ -44,7 +44,7 @@ architecture bhv_intAddress of rom_slv is
 
   -- It reads from file and init the ROM.
   impure function initRomFromFile(romFileName : in string) return rom_arr_type is
-    file RomFile : text is romFileName;
+    file RomFile : text open read_mode is romFileName;
     variable romFileLine : line;
     variable rom         : rom_arr_type;
     variable temp        : bit_vector(bitLength - 1 downto 0);
@@ -169,13 +169,13 @@ begin
 end architecture;
 
 -- Input port 'addr_rd' is used to read the rom values.
-architecture bhv_extAddress of rom_slv is
+architecture rtl_extAddress of rom_slv is
 
   -- 1d array type
   type rom_arr_type is array (0 to romSize - 1) of std_logic_vector(bitLength - 1 downto 0);
 
   ----------------------------------------------------------------
-  -- FUNCTIONS
+  -- Functions
 
   -- It reads from file and init the ROM.
   impure function initRomFromFile(romFileName : in string) return rom_arr_type is

@@ -49,8 +49,8 @@ begin
   DIFFERENT_WIDTH_GEN: if WIDTH_IN /= WIDTH_OUT generate
     constant c_OR_zeros          : std_logic_vector(WIDTH_IN-WIDTH_OUT downto 0) := (others => '0');
     constant c_AND_ones          : std_logic_vector(WIDTH_IN-WIDTH_OUT downto 0) := (others => '1');
-    constant c_zeros             : std_logic_vector(WIDTH_OUT - 1 downto 0) := (others => '0');
-    constant c_ones              : std_logic_vector(WIDTH_OUT - 1 downto 0) := (others => '1');
+    constant c_zeros             : std_logic_vector(WIDTH_OUT - 2 downto 0) := (others => '0');
+    constant c_ones              : std_logic_vector(WIDTH_OUT - 2 downto 0) := (others => '1');
     signal data_in_highPart      : std_logic_vector(WIDTH_IN-WIDTH_OUT downto 0);
     signal reduction_OR_data_in  : std_logic;
     signal reduction_AND_data_in : std_logic;
