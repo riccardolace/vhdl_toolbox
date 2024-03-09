@@ -4,7 +4,7 @@ This repository provides a rich collection of reusable VHDL components designed 
 
 - **basic**: Utilize versatile counters and delays for fundamental timing and control operations.
 - **clock_domain_crossing**: Handle clock domain changes seamlessly with dedicated crossing logic.
-- **digital_signal_processing (future)**: Explore efficient algorithms for signal manipulation and analysis (coming soon!).
+- **digital_signal_processing**: Explore efficient algorithms for signal manipulation and analysis.
 - **math**: Perform accurate rounding operations, with more mathematical functions planned for future additions.
 - **memory**: Implement reliable RAM and FIFO modules for data storage and retrieval.
 - **packages**: Leverage well-structured packages for code organization and reusability across your designs.
