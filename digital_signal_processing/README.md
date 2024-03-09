@@ -5,6 +5,7 @@ Digital Signal Processing
   - [Filters](#filters)
   - [Sample rate converter](#sample-rate-converter)
 
+<br>
 
 ## Filters
 
@@ -14,6 +15,8 @@ Additionally, Python code is provided to:
 - Generate FIR filter coefficients.
 - Generate a test signal for the testbench.
 - Analyze the output signal from the testbench.
+
+<br>
 
 ## Sample rate converter
 

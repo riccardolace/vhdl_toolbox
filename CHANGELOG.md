@@ -12,6 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/reciprocal_square_root] folder
 - [math/waves] folder
 
+---
+
+## [2024.03.09]
+
+### Changed
+
+- clock_domain_crossing/vhdl/cdc_sync_slv.vhd. It was cdc_sync.vhd
+- memory/fifo/vhdl/axi_fifo_2clk.vhd has been improved. It didn't work properly. Testbench can be modified to test clock domain crossing and change the input sample rate.
+
 ## [2024.03.08]
 
 ### Added
