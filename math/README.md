@@ -6,6 +6,7 @@ Math
     - [Complex operations](#complex-operations)
     - [Real operations](#real-operations)
   - [Reciprocal Square Root](#reciprocal-square-root)
+  - [Square Root](#square-root)
   - [Rounding](#rounding)
   - [Waves](#waves)
 
@@ -34,10 +35,15 @@ Block performs the operation $A \times B + C$. Latency is variable and depends o
 
 TO DO...
 
+## Square Root
+
+**Filename** - `cordic_sqrt.vhd`  
+The block allows you to implement a square root block based on the Cordic algorithm.
+
 ## Rounding
 
 **Filename** - `clip_slv.vhd`  
-The block allows you to reduce the size of a `std_logic_vector` saturating it..
+The block allows you to reduce the size of a `std_logic_vector` saturating it.
 
 **Filename** - `round_slv.vhd`  
 The block allows you to implement various rounding logics.

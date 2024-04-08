@@ -74,4 +74,4 @@ begin
   
   data_out <= regs(regs'LENGTH-1);
 
-end bhv; 
+end rtl; 

@@ -12,6 +12,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/reciprocal_square_root] folder
 - [math/waves] folder
 
+## [2024.04.08]
+
+### Added
+
+**basic**
+- encoder
+  - testbench
+    - priorityEncoder_tb.vhd
+  - vhdl
+    - priorityEncoder.vhd
+- shifters
+  - testbench
+    - barrelShifter_tb.vhd
+  - vhdl
+    - barrelShifter.vhd
+
+**math**
+- square_root
+  - cordic
+    - c
+      - bash_cmd.sh
+      - lib_cordicSqrt.c
+      - lib_cordicSqrt.h
+      - main.c
+    - testbench
+      - cordic_sqrt_tb.vhd
+    - vhdl
+      - cordic_sqrt.vhd
+
+
+### Changed
+
+- In `basic/delay/vhdl/delay_ram_slv.vhd`, the reset address counting has been modified.
+- In `clock_domain_crossing/vhdl/cdc_sync_slv.vhd`, the name of the architecture was wrong.
+- In `digital_signal_processing/sample_rate_converter/vhdl/fir_decimator.vhd`, the *delayLength* parameter of the block *delay_chain_slv* was equal to 2. It has been fixed.
+- In `math/arithmetic_operations/vhdl/c_mult.vhd`, `math/arithmetic_operations/vhdl/c_sub.vhd` and `math/arithmetic_operations/vhdl/c_sum.vhd`, the name of the architecture was wrong.
+- In `math/rounding/vhdl/clip_slv.vhd` and `math/rounding/vhdl/round_slv.vhd`, valid_out signal has been fixed.
+
 ---
 
 ## [2024.03.09]

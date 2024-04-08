@@ -66,4 +66,4 @@ begin
   end process;
   z_re <= std_logic_vector(reg_z_re);
   z_im <= std_logic_vector(reg_z_im);
-end bhv;
+end rtl;

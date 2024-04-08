@@ -3,7 +3,7 @@
 -- 
 -- Date: 2024.02.20
 -- Description: 
---   Test Bench.
+--   Delay of a STD_LOGIC_VECTOR.
 -- 
 -- Revision:
 --   0.01 - File Created

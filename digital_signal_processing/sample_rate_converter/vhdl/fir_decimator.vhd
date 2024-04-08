@@ -226,7 +226,7 @@ begin
       delay_inst: entity work.delay_chain_slv
       generic map (
         bitLength   => Width_in ,
-        delayLength => 2
+        delayLength => DecimFactor
         )
       port map (
         clk => clk             ,

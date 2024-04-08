@@ -3,7 +3,7 @@
 -- 
 -- Date: 2024.02.20
 -- Description: 
---   Test Bench.
+--   Delay of a STD_LOGIC_VECTOR based on a ram.
 -- 
 -- Revision:
 --   0.01 - File Created
@@ -66,7 +66,11 @@ begin
       if rst = '1' then
         add_r <= TO_UNSIGNED(1, Ram_width_addr);
         add_w <= TO_UNSIGNED(0, Ram_width_addr);
-        addr_rst <= addr_rst + 1;
+        if (addr_rst =(delayLength - 1)) then
+          addr_rst <= TO_UNSIGNED(0, Ram_width_addr);
+        else
+          addr_rst <= addr_rst + 1;
+        end if;
       elsif enb = '1' then
         if (add_r =(delayLength - 1)) then
           add_r <= TO_UNSIGNED(0, Ram_width_addr);

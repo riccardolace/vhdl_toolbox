@@ -24,19 +24,28 @@ end entity;
 architecture rtl of delay_chain_sl is
   signal reg_y : STD_LOGIC_VECTOR(0 to delayLength - 1);
 begin
-  process (clk)
+  
+  delayLengthIs0_GEN: if delayLength=0 generate
   begin
-    if rising_edge(clk) then
-      if rst = '1' then
-        reg_y <= (others => '0');
-      elsif enb = '1' then
-        reg_y(0) <= x;
-        for n in 1 to delayLength - 1 loop
-          reg_y(n) <= reg_y(n - 1);
-        end loop;
-      end if;
-    end if;
-  end process;
-  y <= reg_y(delayLength - 1);
+    y <= x;
+  end generate;
 
-end architecture;
+  delayLengthIsNot0_GEN: if delayLength>0 generate
+  begin
+    process (clk)
+    begin
+      if rising_edge(clk) then
+        if rst = '1' then
+          reg_y <= (others => '0');
+        elsif enb = '1' then
+          reg_y(0) <= x;
+          for n in 1 to delayLength - 1 loop
+            reg_y(n) <= reg_y(n - 1);
+          end loop;
+        end if;
+      end if;
+    end process;
+    y <= reg_y(delayLength - 1);
+end generate;
+
+end architecture rtl;

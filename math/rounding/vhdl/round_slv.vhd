@@ -137,15 +137,12 @@ begin
       elsif enb = '1' then
         reg_valid_out <= '1';
         reg_data_out <= int_data_out;
-      else
-        reg_valid_out <= '0';
-        reg_data_out <= reg_data_out;
       end if;
     end if;
   end process;
 
   data_out       <= int_data_out;
-  sync_valid_out <= reg_valid_out;
+  sync_valid_out <= enb and reg_valid_out;
   sync_data_out  <= reg_data_out;
 
 end architecture;

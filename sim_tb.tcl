@@ -29,6 +29,10 @@ set     fileList_vhdl {*}[glob basic/counter/vhdl/*.vhd]
 set 		fileList_tb   {*}[glob basic/counter/testbench/*.vhd]
 lappend fileList_vhdl {*}[glob basic/delay/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob basic/delay/testbench/*.vhd]
+lappend fileList_vhdl {*}[glob basic/encoder/vhdl/*.vhd]
+lappend fileList_tb   {*}[glob basic/encoder/testbench/*.vhd]
+lappend fileList_vhdl {*}[glob basic/shifters/vhdl/*.vhd]
+lappend fileList_tb   {*}[glob basic/shifters/testbench/*.vhd]
 
 # File list of 'clock_domain_crossing'
 lappend fileList_vhdl {*}[glob clock_domain_crossing/vhdl/*.vhd]
@@ -44,6 +48,8 @@ lappend fileList_vhdl {*}[glob math/arithmetic_operations/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob math/arithmetic_operations/testbench/*.vhd]
 lappend fileList_vhdl {*}[glob math/rounding/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob math/rounding/testbench/*.vhd]
+lappend fileList_vhdl {*}[glob math/square_root/cordic/vhdl/*.vhd]
+lappend fileList_tb   {*}[glob math/square_root/cordic/testbench/*.vhd]
 
 # File list of 'memory'
 lappend fileList_vhdl {*}[glob memory/fifo/vhdl/*.vhd]
@@ -66,9 +72,9 @@ add_files $fileList_tb
 move_files -fileset sim_1 [get_files $fileList_tb]
 
 # Set top (sources)
-set_property top counter_with_hit [current_fileset]
+set_property top cordic_sqrt [current_fileset]
 
 # Set top (testbench)
-set_property top fir_interpolator_tb [get_filesets sim_1]
+set_property top cordic_sqrt_tb [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 
