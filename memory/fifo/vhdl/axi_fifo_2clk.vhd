@@ -98,7 +98,7 @@ architecture rtl of axi_fifo_2clk is
   attribute ram_style of ram : signal is BRAM_TYPE;
 
   -- Output Register
-  signal reg_o_tvalid : std_logic := '0';
+  signal reg_o_tvalid   : std_logic := '0';
   signal reg_o_tdata    : std_logic_vector(FIFO_DATA_WIDTH - 1 downto 0);
 
   -- Cross Domain Clock signals
@@ -139,13 +139,12 @@ begin
   
   
   -------- Cross Domain Clock Signals - BEGIN --------
-  
   CDC_IN_TO_OUT: process (o_clk)
   begin
     if rising_edge(o_clk) then
       if o_rst = '1' then
         cdc_wr_addr <= (others =>(others => '0'));
-        --elsif o_tready='1' then
+        cdc_write   <= (others => '0');
       else
         cdc_wr_addr(0) <= wr_addr;
         cdc_wr_addr(1 to C_SYNC_STAGES - 1) <= cdc_wr_addr(0 to C_SYNC_STAGES - 2);
@@ -162,7 +161,6 @@ begin
     if rising_edge(i_clk) then
       if i_rst = '1' then
         cdc_full <= (others => '0');
-        --elsif o_tready='1' then
       else
         cdc_full(0) <= reg_full;
         cdc_full(1 to C_SYNC_STAGES - 1) <= cdc_full(0 to C_SYNC_STAGES - 2);
@@ -178,8 +176,7 @@ begin
   P_READ_DATA: process (o_clk)
   begin
     if rising_edge(o_clk) then
-      if read_state = READING or read_int = '1' then
-        --int_tdata <= ram(TO_INTEGER(unsigned(rd_addr)));
+      if read_state = READING and read_int = '1' then
         reg_o_tdata <= ram(TO_INTEGER(unsigned(rd_addr)));
       end if;
     end if;
@@ -207,12 +204,10 @@ begin
               read_state    <= READING;
               reg_diff_addr <= diff_addr;
               reg_empty     <= '0';
-              -- reg_o_tdata   <= int_tdata;
             end if;
 
           when READING =>
             if read_int = '1' then
-              -- reg_o_tdata   <= int_tdata;
 
               if read_cnt=reg_diff_addr-1 then
                 if diff_addr>MIN_SAMPLES_TO_READ-1 then

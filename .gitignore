@@ -8,3 +8,4 @@ math/waves/
 prj_tb/
 .Xil
 sim_*/
+.vscode

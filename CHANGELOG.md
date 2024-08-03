@@ -12,6 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/reciprocal_square_root] folder
 - [math/waves] folder
 
+## [2024.MM.DD]
+
+### Changed
+
+- In `digital_signal_processing/sample_rate_converter/vhdl/fir_decimator.vhd`, regB_len of numtAdd_inst has been changed from 2 to 1.
+- In `memory/fifo/vhdl/axi_fifo_2clk.vhd`, the reading logic has been patched.
+- In `math/square_root/cordic/vhdl/cordic_sqrt.vhd`, the dynamic of the bits and valid propagation have been fixed. Cordic block did not work correctly for large input values.
+- In `clock_domain_crossing/vhdl/cdc_sync_slv.vhd`, vhdl attribute has been patchted.
+
 ## [2024.04.08]
 
 ### Added

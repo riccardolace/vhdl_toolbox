@@ -222,8 +222,9 @@ architecture cordic_unrolled of cordic_sqrt is
   signal leftShift_y    : std_logic_vector(Wl-1 downto 0);
 
   -------- Cordic Kernel --------
-  type cordicKernel_data_type is array (0 to cordicIterations) of signed(Wl downto 0);
-  constant c_cor_ker_val_025  : signed(Wl downto 0) := shift_left(to_signed(1, Wl+1), Wl-4);
+  constant c_Wl_cordicKernel : integer := Wl+2;
+  type cordicKernel_data_type is array (0 to cordicIterations) of signed(c_Wl_cordicKernel-1 downto 0);
+  constant c_cor_ker_val_025  : signed(c_Wl_cordicKernel-1 downto 0) := shift_left(to_signed(1, c_Wl_cordicKernel), Wl-2);
   signal reg_cor_ker_x        : cordicKernel_data_type;
   signal reg_cor_ker_y        : cordicKernel_data_type;
   signal reg_cor_ker_valid    : std_logic_vector(0 to cordicIterations);
@@ -259,7 +260,7 @@ begin
       reg_o_tdata  <= (others=>'0');
       reg_o_tvalid <= '0';
       reg_o_tready <= '0';
-    else
+    elsif enb='1' then
       -- Input Interface
       reg_i_tvalid <= i_tvalid;
       reg_i_tdata  <= std_logic_vector(resize(unsigned(i_tdata), Wl));
@@ -278,7 +279,7 @@ begin
 
 
   -- Global Enable 
-  enb <= reg_i_tvalid and reg_o_tready;
+  enb <= i_tvalid and o_tready;
 
 
   -------- Find the MSB zeros --------
@@ -357,8 +358,8 @@ begin
   -- y = u - 0.25
   -- 
   -- The first elements of the arrays 'reg_cor_ker_x(0)' and 'reg_cor_ker_y(0)' are not a registers.
-  reg_cor_ker_x(0) <= signed( "0" & leftShift_y ) + c_cor_ker_val_025;
-  reg_cor_ker_y(0) <= signed( "0" & leftShift_y ) - c_cor_ker_val_025;
+  reg_cor_ker_x(0) <= resize(signed("0" & leftShift_y),c_Wl_cordicKernel) + c_cor_ker_val_025;
+  reg_cor_ker_y(0) <= resize(signed("0" & leftShift_y),c_Wl_cordicKernel) - c_cor_ker_val_025;
 
 
   CORDIC_STAGES: for idx in 1 to cordicIterations generate
@@ -404,7 +405,7 @@ begin
       end if;
     end if;
   end process;
-  multCordicGain_z_shifted <= std_logic_vector(shift_right(unsigned(multCordicGain_z),cordiGainWl-2));
+  multCordicGain_z_shifted <= std_logic_vector(shift_right(unsigned(multCordicGain_z),cordiGainWl-1));
 
 
   -------- Right shift related to the previous left shift --------
@@ -438,10 +439,10 @@ begin
     delayLength => dsp_valid_len
   )
   port map (
-    clk => clk        ,
-    rst => rst        ,
-    enb => enb        ,
-    x   => '1'        ,
+    clk => clk          ,
+    rst => rst          ,
+    enb => enb          ,
+    x   => reg_i_tvalid ,
     y   => dsp_valid
   );
 
@@ -453,7 +454,7 @@ begin
 
   -- Output side - Valid out
   int_o_tvalid <= enb and dsp_valid;
-  o_tvalid <= reg_o_tvalid;
+  o_tvalid <= i_tvalid and reg_o_tvalid;
   
   -- Output side - Data out
   outRoundLogic_GEN: if (Wl-Wl_out)>0 generate

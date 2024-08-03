@@ -43,20 +43,20 @@ generic (
   DATA_WIDTH : INTEGER := 16
 );
 port(
-  clk       : IN  STD_LOGIC;
-  rst       : IN  STD_LOGIC;
-  enb       : IN  STD_LOGIC;
-  data_in   : IN  STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
-  data_out  : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0)
+  clk       : in  std_logic;
+  rst       : in  std_logic;
+  enb       : in  std_logic;
+  data_in   : in  std_logic_vector(DATA_WIDTH-1 downto 0);
+  data_out  : out std_logic_vector(DATA_WIDTH-1 downto 0)
 );
 end cdc_sync_slv;
 
 architecture rtl of cdc_sync_slv is
   
-  TYPE T_arr IS ARRAY (natural range <>) OF STD_LOGIC_VECTOR(data_in'RANGE);
-  SIGNAL regs : T_ARR(0 TO REGS_STAGE-1);
-  ATTRIBUTE ram_style: STRING;
-  ATTRIBUTE ram_style OF regs : SIGNAL IS "block";
+  type T_arr is array (natural range <>) of std_logic_vector(data_in'range);
+  signal regs : T_ARR(0 TO REGS_STAGE-1);
+  attribute ASYNC_REG: STRING;
+  attribute ASYNC_REG of regs : signal is "true";
   
 begin
 
@@ -67,11 +67,11 @@ begin
       regs <= (others=>(others=>'0'));
     elsif enb='1' then
       regs(0) <= data_in;
-      regs(1 to regs'LENGTH-1) <= regs(0 to regs'LENGTH-2);
+      regs(1 to regs'length-1) <= regs(0 to regs'length-2);
     end if;
   end if;
   end process;
   
-  data_out <= regs(regs'LENGTH-1);
+  data_out <= regs(regs'length-1);
 
 end rtl; 
