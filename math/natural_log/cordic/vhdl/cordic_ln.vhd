@@ -154,8 +154,8 @@ architecture cordic_unrolled of cordic_ln is
   begin
     x := 1.0 / (2.0**real(j));
     if abs(x) >= 0.0 and abs(x) < 1.0 then
-      -- atanh_r := (log(1.0 + x) - log(1.0 - x))/2.0;
-      atanh_r := arctanh(x);
+      atanh_r := (log(1.0 + x) - log(1.0 - x))/2.0;
+      -- atanh_r := arctanh(x);
     else
       atanh_r := 0.0;
     end if;
