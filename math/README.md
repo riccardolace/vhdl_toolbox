@@ -5,6 +5,7 @@ Math
   - [Arithmetic operations](#arithmetic-operations)
     - [Complex operations](#complex-operations)
     - [Real operations](#real-operations)
+  - [Natural Logarithm](#natural-logarithm)
   - [Reciprocal Square Root](#reciprocal-square-root)
   - [Square Root](#square-root)
   - [Rounding](#rounding)
@@ -31,6 +32,11 @@ Block performs a real multiplication between 2 signals. Block has a latency of 1
 **Filename** - `multAdd.vhd`  
 Block performs the operation $A \times B + C$. Latency is variable and depends on registers settings.
 
+## Natural Logarithm
+
+**Filename** - `cordic_ln.vhd`  
+The block allows you to implement the natural logarithm function based on the CORDIC algorithm.
+
 ## Reciprocal Square Root
 
 TO DO...
@@ -38,7 +44,7 @@ TO DO...
 ## Square Root
 
 **Filename** - `cordic_sqrt.vhd`  
-The block allows you to implement a square root block based on the Cordic algorithm.
+The block allows you to implement a square root function based on the CORDIC algorithm.
 
 ## Rounding
 

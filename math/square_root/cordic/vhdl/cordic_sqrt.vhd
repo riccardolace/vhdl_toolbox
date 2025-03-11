@@ -476,8 +476,5 @@ begin
   end generate;
 
   o_tdata  <= reg_o_tdata;
-  
-  
---  BISOGNA BILANCIARE I RITARDI
-  
+    
 end cordic_unrolled;

@@ -29,6 +29,8 @@
 -- x_{2^n-1} ─────>│             ├────────────────>│         ├────> y_{n-1}
 --                 └─────────────┘    z_{2^n-1}    └─────────┘
 --
+--   - PRIORITY RESOLUTION finds the MSB equal to 1
+--   - 2^n BINARY ENCODER converts the output of the previous block to a number 1
 -- 
 -- Revision:
 --   0.01 - File Created
@@ -75,7 +77,7 @@ architecture rtl of priorityEncoder is
 
 begin
 
-  -------- Priority Resolution--------
+  -------- Priority Resolution --------
   priorityEncoder_GEN: for i in 0 to z'length-1 generate
   begin
 

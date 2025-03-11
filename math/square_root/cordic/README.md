@@ -25,7 +25,7 @@ To ensure optimal fixed-point (FXP) representation, the design leverages C code 
 
 You can use a CORDIC computing mode algorithm to calculate hyperbolic functions, such as hyperbolic trigonometric, square root, log, exp, etc.
 
-### Cordic Equations in Hyperbolic Vectoring Mode
+### CORDIC Equations in Hyperbolic Vectoring Mode
 
 The hyperbolic vectoring mode is used for computing square root. For the vectoring mode, the CORDIC equations are as follows:
 
@@ -94,8 +94,6 @@ x_n \approx A_n \sqrt{v}
 - input numbers are represented in C using `uint64_t` type and
 -  it is important understand how to represent a fractional number using integer types
 - Q notation is used. If Wl=32 for example, we have 1 bit for the integer part and 31 bits for the fractional part
-
-
 
 Building on the previous sections, it's important to understand how fractional numbers are represented within the C code's fixed-point (FXP) system. Since the FXP system requires an even number of bits (denoted as `Wl` for Word Length) to represent numbers, and the input range is restricted to $[0.5, 2)$, we leverage the `uint64_t` data type in C for efficient storage.
 
@@ -168,7 +166,7 @@ The $z_{i+1}$ is not considered because it is not used for the $\sqrt{x}$ estima
 
 **First**, the value of $u$ requires scaling to compensate for the pre-processing stage. Recall that the input was normalized during pre-processing to fit the CORDIC's acceptable range. This normalization involved scaling the input, and the current step reverses that scaling to bring the result back to the original range of the square root function.
 
-**Second**, a correction factor called the *Cordic gain* is applied. The CORDIC algorithm itself introduces a slight scaling factor during its calculations. This *Cordic gain* is a constant value and needs to be factored out to obtain the final, accurate square root. It is estimates as:
+**Second**, a correction factor called the *CORDIC gain* is applied. The CORDIC algorithm itself introduces a slight scaling factor during its calculations. This *CORDIC gain* is a constant value and needs to be factored out to obtain the final, accurate square root. It is estimates as:
 
 $$
 G = \frac{1}{\prod_i \sqrt{1 - 2^{-2i}}}

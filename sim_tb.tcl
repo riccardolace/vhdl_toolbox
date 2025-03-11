@@ -48,6 +48,8 @@ lappend fileList_vhdl {*}[glob math/arithmetic_operations/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob math/arithmetic_operations/testbench/*.vhd]
 lappend fileList_vhdl {*}[glob math/rounding/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob math/rounding/testbench/*.vhd]
+lappend fileList_vhdl {*}[glob math/natural_log/cordic/vhdl/*.vhd]
+lappend fileList_tb   {*}[glob math/natural_log/cordic/testbench/*.vhd]
 lappend fileList_vhdl {*}[glob math/square_root/cordic/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob math/square_root/cordic/testbench/*.vhd]
 

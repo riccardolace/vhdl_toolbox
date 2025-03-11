@@ -3,7 +3,7 @@
 * Author: Daniele Giardino
 * Date: 2024.03.28
 * 
-* Descritpion
+* Description
 * 
 *   COordinate Rotation DIgital Computer (Cordic) implementation.
 *   
@@ -127,7 +127,7 @@ int main(int argc, char **argv) {
           err_inc += 1;
           max_err = (abs(err) > max_err) ? abs(err) : max_err;
           if (flag_err_flp)
-            fprintf(pFile, "%03lu,%3.4f,%3.4f%f\n", s, x_ref_flp, x_cor_flp, err);
+            fprintf(pFile, "%03lu,%3.4f,%3.4,f%f\n", s, x_ref_flp, x_cor_flp, err);
           else
             fprintf(pFile, "%03lu,%03lu,%03lu,%f\n", s, x_ref_int, x_cor, err);
         }

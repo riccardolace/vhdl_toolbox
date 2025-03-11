@@ -5,7 +5,11 @@ math/waves/
 
 
 # Simulator folders
-prj_tb/
+prj_tb
 .Xil
 sim_*/
-.vscode
+.vscode/
+
+
+# Teroshdl
+teroshdl_files

@@ -3,6 +3,8 @@
     "stdio.h": "c",
     "omp.h": "c",
     "stdlib.h": "c",
-    "time.h": "c"
+    "time.h": "c",
+    "cmath": "c",
+    "lib_cordic_ln.h": "c"
   }
 }

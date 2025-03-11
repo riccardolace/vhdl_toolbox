@@ -12,7 +12,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/reciprocal_square_root] folder
 - [math/waves] folder
 
-## [2024.MM.DD]
+## [2025.03.11]
+
+### Added
+
+**math**
+
+- natural_log/
+  - cordic
+    - c
+      - lib_cordic_ln.c
+      - main.c
+      - print_atanh_values.c
+      - lib_cordic_ln.h
+      - bash_cmd.sh
+      - error_values.txt
+    - testbench
+      - cordic_ln_tb.vhd
+    - vhdl
+      - cordic_ln.vhd
 
 ### Changed
 
@@ -25,7 +43,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-**basic**
+**basic**  
+
 - encoder
   - testbench
     - priorityEncoder_tb.vhd
@@ -37,7 +56,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - vhdl
     - barrelShifter.vhd
 
-**math**
+**math**  
+
 - square_root
   - cordic
     - c
@@ -49,7 +69,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
       - cordic_sqrt_tb.vhd
     - vhdl
       - cordic_sqrt.vhd
-
 
 ### Changed
 
@@ -72,7 +91,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-**digital signal processing folder**
+**digital signal processing folder**  
+
 - filters
   - python
     - genFIRCoeffs.py
@@ -102,7 +122,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - fir_decimator.vhd
     - fir_interpolator.vhd
 
-**math folder**
+**math folder**  
+
 - arithmetic_operations
   - testbench
     - acc_N_sps_tb.vhd
@@ -115,7 +136,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - mult.vhd
     - multAdd.vhd
 
-**memory folder**
+**memory folder**  
+
 - fifo/testbench
     - axi_fifo_2clk_tb.vhd
 
