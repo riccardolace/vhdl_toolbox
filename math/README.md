@@ -7,10 +7,9 @@ Math
     - [Real operations](#real-operations)
   - [Natural Logarithm](#natural-logarithm)
   - [Reciprocal Square Root](#reciprocal-square-root)
-  - [Square Root](#square-root)
   - [Rounding](#rounding)
+  - [Square Root](#square-root)
   - [Waves](#waves)
-
 
 ## Arithmetic operations
 
@@ -41,11 +40,6 @@ The block allows you to implement the natural logarithm function based on the CO
 
 TO DO...
 
-## Square Root
-
-**Filename** - `cordic_sqrt.vhd`  
-The block allows you to implement a square root function based on the CORDIC algorithm.
-
 ## Rounding
 
 **Filename** - `clip_slv.vhd`  
@@ -66,6 +60,18 @@ AXI version of the block `round_slv.vhd`.
 **Filename** - `axi_round_and_clip_slv.vhd`  
 AXI block composed of the cascade of `axi_round_slv.vhd` and `axi_clip_slv.vhd`.
 
+## Square Root
+
+**Filename** - `cordic_sqrt.vhd`  
+The block allows you to implement a square root function based on the CORDIC algorithm.
+
 ## Waves
 
-TO DO...
+**Filename** - `gen_cos.vhd`  
+The block allows you to implement a cosine wave.
+
+**Filename** - `gen_sin.vhd`  
+The block allows you to implement a sine wave.
+
+**Filename** - `gen_c_wave.vhd`  
+The block allows you to implement a complex wave.

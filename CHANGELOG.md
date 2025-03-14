@@ -10,7 +10,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### To add
 
 - [math/reciprocal_square_root] folder
-- [math/waves] folder
+
+## [2025.03.14]
+
+### Added
+
+**math**
+
+- waves/
+  - testbench
+    - dds_c_wave_tb.vhd
+  - vhdl
+    - dds_c_wave.vhd
+    - dds_cos.vhd
+    - dds_sin.vhd
 
 ## [2025.03.11]
 
