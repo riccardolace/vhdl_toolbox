@@ -44,7 +44,7 @@ begin
   
   begin
   
-    g_gen_cos : entity work.gen_cos(rtl)
+    g_gen_cos : entity work.dds_cos(rtl)
       generic map (
         implStruct => "no_symmetry", -- "no_symmetry"
         bitLength => bitLength,
@@ -60,7 +60,7 @@ begin
         y   => y_re
       );
   
-    g_gen_sin : entity work.gen_sin(rtl)
+    g_gen_sin : entity work.dds_sin(rtl)
       generic map (
         implStruct => "no_symmetry", -- "no_symmetry"
         bitLength => bitLength,
