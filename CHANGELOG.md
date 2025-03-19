@@ -25,7 +25,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - dds_cos.vhd
     - dds_sin.vhd
 
-## [2025.03.11]
+## [2025.03.19]
 
 ### Added
 
