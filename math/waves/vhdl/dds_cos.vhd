@@ -1,13 +1,15 @@
 ----------------------------------------------------------------------------------
 -- Author: Daniele Giardino
 -- 
--- Date: 2025.03.25
+-- Date: 2025.03.14
 -- 
 -- Description: 
 --   Implementation of a DDS to generate a cosine wave.
 --
 -- Revision:
---   2025.03.25 - File Created
+--   2025.03.25 - FIX: The address signal was not reset when it reached its maximum value, 
+--                but rather when it reached the overflow.  
+--   2025.03.14 - File Created
 --
 -- Notes:
 --
@@ -41,7 +43,7 @@ begin
   no_symmetry_STRUCT : if implStruct = "no_symmetry" generate
 
     -- LUT size
-    constant sizeLut : integer := abs(n_end - n_start) + 1;
+    constant lutSize : integer := abs(n_end - n_start) + 1;
 
     -- Type
     type t_arr is array (natural range <>) of signed(bitLength - 1 downto 0);
@@ -55,7 +57,7 @@ begin
     ) return t_arr is
       variable Ampl    : real := (2.0 ** (WidthBit - 1) - 1.0);
       variable temp    : real;
-      variable arr_out : t_arr(0 to sizeLut - 1);
+      variable arr_out : t_arr(0 to lutSize - 1);
       variable i       : integer := 0;
     begin
 
@@ -77,10 +79,10 @@ begin
     end function;
 
     -- Cos Array
-    signal arr_cos                 : t_arr(0 to sizeLut - 1) := f_cos(Wn, n_start, n_end, bitLength);
-    signal addr                    : unsigned(integer(ceil(log2(real(sizeLut)))) - 1 downto 0);
+    signal lut_arr                 : t_arr(0 to lutSize - 1) := f_cos(Wn, n_start, n_end, bitLength);
+    signal addr                    : unsigned(integer(ceil(log2(real(lutSize)))) - 1 downto 0);
     attribute rom_style            : string;
-    attribute rom_style of arr_cos : signal is "distributed";
+    attribute rom_style of lut_arr : signal is "distributed";
 
     -- Signal
     signal reg_y : signed(bitLength - 1 downto 0);
@@ -93,8 +95,12 @@ begin
           addr  <= (others => '0');
           reg_y <= (others => '0');
         elsif enb = '1' then
-          addr  <= addr + 1;
-          reg_y <= arr_cos(TO_INTEGER(addr));
+          if addr=lutSize-1 then
+            addr <= (others => '0');
+          else
+            addr  <= addr + 1;
+          end if;
+          reg_y <= lut_arr(TO_INTEGER(addr));
         end if;
       end if;
     end process;
