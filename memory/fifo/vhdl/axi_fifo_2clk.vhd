@@ -62,7 +62,6 @@ end entity;
 
 architecture rtl of axi_fifo_2clk is
 
-  signal int_tdata  : std_logic_vector(FIFO_DATA_WIDTH - 1 downto 0);
   signal int_tready : std_logic;
 
   -- read_int will assert when either a read occurs or the output register is empty (and there is data in the shift register fifo)

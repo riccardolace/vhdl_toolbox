@@ -38,6 +38,7 @@ architecture sim of cordic_ln_tb is
   constant Wl_in              : integer := 30;
   constant Fl                 : integer := Wl_in-1;
   constant Wl_out             : integer := 16;
+  constant Fl_out             : integer := (Wl_out - 1 - integer(floor(log2(real(Wl_in)))));
   signal dut_i_tvalid         : std_logic;
   signal dut_i_tdata_real     : real;
   signal dut_i_tdata_slv      : std_logic_vector(Wl_in+1 downto 0);
@@ -52,7 +53,7 @@ architecture sim of cordic_ln_tb is
   type test_data_in_arr_type is array (NATURAL RANGE <>) of real;
   signal i : integer := 0;
   signal load_data : boolean;
-  constant test_data_in_arr : test_data_in_arr_type(0 to 13) := (
+  constant test_data_in_arr : test_data_in_arr_type(0 to 14) := (
     0.0,
     0.0,
     1.0/(2**(Fl-1)),
@@ -66,6 +67,7 @@ architecture sim of cordic_ln_tb is
     1.4500,
     1.5000,
     1.5500,
+    1.9000,
     1.9000
   );
   -- constant test_data_in_arr : test_data_in_arr_type(0 to 1) := (0.9, 0.9);
@@ -151,7 +153,7 @@ begin
         if load_data then
           if i<test_data_in_arr'length-1 then
             dut_i_tdata     <= dut_i_tdata_slv(Wl_in-1 downto 0);
-            dut_o_tdata_ref <= signed(flp_to_fxp(log(dut_i_tdata_real), Wl_out, 11) );
+            dut_o_tdata_ref <= signed(flp_to_fxp(log(dut_i_tdata_real), Wl_out, Fl_out) );
             i <= i+1;
           end if;
   				dut_i_tvalid <= '1';

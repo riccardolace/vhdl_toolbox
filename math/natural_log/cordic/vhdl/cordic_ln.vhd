@@ -16,7 +16,7 @@
 --
 -- Output:
 --   - 'output_data': A signed fixed-point value representing the natural logarithm of the input.
---     - The output is represented in QX.Y format (where $X=floor(log2(Wl_in))$ and $Y=Wl_in-1-X$ are determined based on the implementation details).
+--     - The output is represented in QX.Y format (where $X=floor(log2(Wl_out)+1)$ and $Y=Wl_in-X$ are determined based on the implementation details).
 --     - The output range is limited to [ln(0), ln(2-2^(-FF))). Since ln(2-2^(-FF)) < ln(2), the maximum representable value is less than ln(2).
 --     - The output is signed to correctly represent the negative values resulting from ln(x) for x < 1.
 --

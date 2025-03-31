@@ -39,7 +39,7 @@ begin
 
   clk <= not clk after clk_period / 2;
 
-  DUT: entity work.rom_slv(bhv_intAddress)
+  DUT: entity work.rom_slv(rtl_intAddress)
     generic map (
       romSize   => 64,
       romStyle  => "distributed",

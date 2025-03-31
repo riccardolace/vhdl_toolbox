@@ -30,7 +30,7 @@ architecture sim of round_and_clip_slv_tb is
     variable y     : integer;
   begin
     
-    x_tmp := x* (2**Fl);
+    x_tmp := x * (2.0**Fl);
     y     := integer(round(x_tmp));
 
     return y;
