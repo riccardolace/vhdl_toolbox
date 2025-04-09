@@ -44,7 +44,7 @@ begin
 
   SAME_WIDTH_GEN: if WIDTH_IN = WIDTH_OUT + CLIP_BITS generate
   begin
-    int_tvalid <= '1';
+    int_tvalid <= enb;
     int_tdata  <= data_in;
   end generate;
 

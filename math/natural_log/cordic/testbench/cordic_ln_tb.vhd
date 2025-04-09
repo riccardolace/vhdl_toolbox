@@ -35,7 +35,7 @@ architecture sim of cordic_ln_tb is
   signal rst : std_logic := '1';
 
   -- DUT signals
-  constant Wl_in              : integer := 30;
+  constant Wl_in              : integer := 36;
   constant Fl                 : integer := Wl_in-1;
   constant Wl_out             : integer := 16;
   constant Fl_out             : integer := (Wl_out - 1 - integer(floor(log2(real(Wl_in)))));
@@ -76,7 +76,7 @@ architecture sim of cordic_ln_tb is
   type dataOutRef_type is array (0 to 255) of signed(Wl_out-1 downto 0);
   signal dataOutRef       : dataOutRef_type;
   signal dataOutRef_last  : signed(Wl_out-1 downto 0);
-  signal dataOutRef_delay : integer := 40;
+  signal dataOutRef_delay : integer := 47;
   
 
 begin
