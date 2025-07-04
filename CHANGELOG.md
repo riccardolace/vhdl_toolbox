@@ -7,9 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Next release...]
 
-### To add
+### TODO
 
 - [math/reciprocal_square_root] folder
+- [math/waves] folder. Upgrade the DDS design.
 
 ## [2025.03.14]
 
