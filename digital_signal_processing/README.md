@@ -10,7 +10,9 @@ Digital Signal Processing
 
 ## Farrow Filter
 
-
+> <mark>**NOTE**</mark>  
+> The VHDL code will be developed in the future.
+> Only the functions to generate the coefficients of the FIR filters that compose the Farrow filter are available.
 
 <br>
 
