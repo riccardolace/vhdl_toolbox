@@ -28,6 +28,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
       - vhdl
         - lfsr_gal.vhd
 
+### Changed
+
+Some Readme files and comments in .vhd files that had typos have been corrected.
+
 
 ## [2025.08.28]
 
