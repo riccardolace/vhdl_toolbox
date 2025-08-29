@@ -2,7 +2,7 @@
 -- File        : lfsr_fib_tb.vhd
 -- Author      : La Cesa Riccardo
 -- Date        : 20/08/2025
--- Description : TB for the Galois LFSR (Linear Feedback Shift Register) in VHDL.
+-- Description : TB for the Fibonacci LFSR (Linear Feedback Shift Register) in VHDL.
 -- ============================================================================
 
 

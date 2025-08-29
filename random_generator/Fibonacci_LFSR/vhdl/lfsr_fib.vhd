@@ -2,7 +2,7 @@
 -- File        : lfsr_fib.vhd
 -- Author      : La Cesa Riccardo
 -- Date        : 20/08/2025
--- Description : Galois LFSR (Linear Feedback Shift Register) in VHDL.
+-- Description : Fibonacci LFSR (Linear Feedback Shift Register) in VHDL.
 --               It uses a specified width, feedback taps, and seed value.
 --               The LFSR generates a pseudo-random sequence based on the defined parameters.
 -- ============================================================================

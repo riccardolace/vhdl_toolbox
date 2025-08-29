@@ -12,6 +12,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [math/reciprocal_square_root] folder
 - [math/waves] folder. Upgrade the DDS design.
 
+## [2025.08.29]
+
+### Added
+
+**Random_generator**
+
+- Random_generator/
+  - Galois_LFSR
+    - matlab
+      - histo_out.m
+    - testbench
+      - data_out.txt
+        - lfsr_gal_tb.vhd
+      - vhdl
+        - lfsr_gal.vhd
+
+
 ## [2025.08.28]
 
 ### Added

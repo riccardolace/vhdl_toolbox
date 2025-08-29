@@ -71,7 +71,10 @@ lappend fileList_tb   {*}[glob memory/rom/testbench/*.vhd]
 
 #file list of 'random_generator'
 lappend fileList_vhdl {*}[glob random_generator/Fibonacci_LFSR/vhdl/*.vhd]
+lappend fileList_vhdl {*}[glob random_generator/Galois_LFSR/vhdl/*.vhd]
 lappend fileList_tb   {*}[glob random_generator/Fibonacci_LFSR/testbench/*.vhd]
+lappend fileList_tb   {*}[glob random_generator/Galois_LFSR/testbench/*.vhd]
+
 
 # File list of 'package'
 lappend fileList_vhdl {*}[glob packages/vhdl/*.vhd]
@@ -92,18 +95,20 @@ move_files -fileset sim_1 [get_files $fileList_tb]
 # SET TOP FILES
 ##############################################
 
-# Set top (sources)
-set_property top lfsr_fib [current_fileset]
+## Set top (sources)
+set_property top lfsr_gal [current_fileset]
 
-# Set top (testbench)
-set_property top lfsr_fib_tb [get_filesets sim_1]
+## Set top (testbench)
+set_property top lfsr_gal_tb [get_filesets sim_1]
 set_property top_lib xil_defaultlib [get_filesets sim_1]
 
-# Launch simulation
+## Launch simulation
 update_compile_order -fileset sources_1
 update_compile_order -fileset sim_1
 
 launch_simulation
-#source lfsr_galois_tb.tcl
 run all
+
+##start gui or exit
+#start_gui
 exit
